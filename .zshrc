@@ -4,13 +4,23 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+
+#custom config
+DISABLE_AUTO_UPDATE="true"
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export PATH=$PATH:~/.local/bin
+export PATH="/home/proxima/.bun/bin:$PATH"
+export PATH=$PATH:/usr/bin/vendor_perl/
+export PATH=$PATH:~/Desktop/Webdev/Cypher-Cli
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
+export PATH=$PATH:/var/lib/snapd/snap/bin
+#Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -77,7 +87,8 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions)
-
+#plugins=(git)
+#plugins=()
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -122,6 +133,7 @@ alias hello="./greet.sh";
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
 eval "$(zoxide init zsh)"
+alias n='nvim .'
 alias k='kubectl'
 alias kgp='k get pods'
 alias kgd='k get deployments'
@@ -138,4 +150,36 @@ alias kaf='k apply -f'
 alias kga='k get all'
 alias cls='clear'
 alias dda='docker rm -vf $(docker ps -aq)'
+#alias neofetch='neofetch --ascii ~/ascii/windows.txt --ascii_colors 3 5 1'
+alias fastfetch='fastfetch --logo ~/ascii/windows.txt'
+#alias nvim='nohup alacritty -e "nvim"'
 
+alias ta='tmux attach'
+alias tl='tmux ls'
+alias battery='cat /sys/class/power_supply/BAT0/capacity'
+
+# bun completions
+[ -s "/home/proxima/.bun/_bun" ] && source "/home/proxima/.bun/_bun"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/proxima/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/proxima/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/proxima/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/proxima/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export CPLUS_INCLUDE_PATH=/usr/include/c++/8:$CPLUS_INCLUDE_PATH
+
+export PATH=$PATH:/home/proxima/.spicetify
+
+
+# ANTLR
+export CLASSPATH=".:/usr/share/java/antlr-4.13.2-complete.jar:$CLASSPATH"
