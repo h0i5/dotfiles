@@ -7,20 +7,19 @@
     "gtk-layer-shell": true,
     "height": 0,
     "modules-left": [
-        "custom/logo",
-        "hyprland/workspaces",
-        "hyprland/window",
-        "cpu",
+        "clock",
+        "hyprland/workspaces"
     ],
-    "modules-center": [ "custom/music"],
+    "modules-center": ["hyprland/window", "custom/music"],
     "modules-right": [
         //"memory",
+        "cpu",
         "network",
         "bluetooth",
         "pulseaudio",
         "pulseaudio#microphone",
-        "battery",
-        "clock",
+        "tray",
+        "custom/notification",
         "custom/power"
     ],
 
@@ -30,12 +29,7 @@
 	"format-connected": "<span foreground='#89b4fa'> {device_alias}</span>",
 	"tooltip-format": "{controller_alias}\t{controller_address}",
 	"tooltip-format-connected": "{device_battery_percentage}% Battery Left",
-	"on-click": "blueman-manager"
-    },
-
-
-    "custom/logo": {
-        "format": "󰣇"
+	"on-click": "blueberry"
     },
     
     "hyprland/window": {
@@ -178,8 +172,9 @@
 
     "cpu": {
         "interval": 1,
-        "on-click": "kitty --class monitor -e btop",
-        "format": "󰍛 {usage}%"
+        "format": "󰍛 {usage}%",
+        "format-alt": "{icon0}{icon1}{icon2}{icon3}",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     },
 
     "network": {
@@ -195,6 +190,6 @@
     },
     "custom/power": {
         "format" : "",
-        "on-click": "hyprlock"
+        "on-click": "wlogout"
     }
 }

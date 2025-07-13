@@ -1,20 +1,10 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetbrainsMono Nerd Font", "Cartograph CF", "Font Awesome 6 Pro";
+  font-family: "Cartograph CF", "Font Awesome 6 Pro";
   font-weight: bold;
   font-size: 14px;
   min-height: 0;
-}
-
-#custom-logo {
-  background: #1e1e2e;
-  padding: 2px 10px;
-  margin: 4px;
-  margin-top: 5px;
-  margin-right: 2px;
-  margin-left: 10px;
-  border-radius: 8px;
 }
 
 window#waybar {
@@ -54,6 +44,7 @@ window#waybar {
 
 #window,
 #clock,
+#battery,
 #pulseaudio,
 #bluetooth,
 #custom-music,
@@ -69,7 +60,7 @@ window#waybar {
   padding: 0px 10px;
   margin: 3px 0px;
   margin-top: 5px;
-  border: 1px solid #181825;
+  /* border: 1px solid #181825; */
 }
 
 #backlight {
@@ -101,7 +92,7 @@ window#waybar {
 
 #window {
   border-radius: 10px;
-  margin-left: 5px;
+  margin-left: 60px;
   margin-right: 5px;
 }
 
@@ -153,10 +144,7 @@ window#waybar {
 }
 
 #battery {
-  background: #1e1e2e;
-  padding: 5px 5px;
-  margin-top: 5px;
-  border: 1px solid #181825;
   color: #a6adc8;
-  border-radius: 10px;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 10px;
 }
